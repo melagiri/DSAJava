@@ -1,4 +1,8 @@
-package com.melagiri.dsa.datastructures;
+/**
+ * A Simple Generic Array Implementation
+ * @author Srikanth Rao M, mskr30@yahoo.com
+ */
+package com.melagiri.dsa.datastructures.arrays;
 
 import java.util.Iterator;
 import java.util.stream.IntStream;
@@ -6,14 +10,14 @@ import java.util.stream.IntStream;
 public class Array <T> implements Iterable <T> {
     private T [] arr;
     private int len = 0;
-    private int capacity = 0;
+    private int capacity;
 
     public Array() {
         this(16);
     }
 
     /**
-     * @param capacity
+     * @param capacity Capacity
      */
     public Array(int capacity) {
         if (capacity < 0) throw new IllegalArgumentException("Illegal Capacity: " + capacity);
@@ -112,5 +116,33 @@ public class Array <T> implements Iterable <T> {
             IntStream.range(0, len - 1).forEach(i -> string.append(arr[i]).append(", "));
             return string.append(arr[len - 1]).append("]").toString();
         }
+    }
+
+    public static void main(String[] args)
+    {
+        Array<Integer> intArray = new Array<>();
+        System.out.println(intArray);
+        intArray.add(2);
+        System.out.println(intArray);
+        intArray.add(3);
+        System.out.println(intArray);
+        intArray.remove(2);
+        System.out.println(intArray);
+        intArray.add(5);
+        System.out.println(intArray);
+        intArray.add(22);
+        System.out.println(intArray);
+        intArray.removeAt(2);
+        System.out.println(intArray);
+
+        Array<String> strArray = new Array<>();
+        strArray.add("Srikanth");
+        System.out.println(strArray);
+        strArray.add("Melagiri");
+        System.out.println(strArray);
+        strArray.add("Rao");
+        System.out.println(strArray);
+        strArray.remove("Melagiri");
+        System.out.println(strArray);
     }
 }
